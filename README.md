@@ -1,16 +1,43 @@
-# AI Information Extractor
+# DataSense - AI Information Extractor
 
-This project extracts specific information for entities listed in a dataset (CSV or Google Sheets) using web search and an LLM. The extracted information is displayed in a web dashboard built with Flask.
+DataSense is a powerful web-based tool designed to extract specific information for entities listed in datasets, such as companies or organizations, using advanced web searches and an LLM (Large Language Model). The application enables users to upload data via CSV files or connect directly to Google Sheets. This extracted information can be viewed, analyzed, and downloaded, all through a clean and user-friendly Flask web interface.
 
-## Features
-- Upload CSV files or connect to Google Sheets.
-- Define custom prompts for information extraction.
-- Perform web searches and extract information using an LLM.
-- View results and download extracted data.
+---
 
-## Setup Instructions
+## Key Features
 
-1. **Clone the repository**:
-   ```bash
-   git clone <repository-url>
-   cd project-root
+- **Seamless Data Upload**: Upload CSV files or connect directly to Google Sheets to input your data.
+- **Custom Prompts**: Define unique prompts for the type of information you'd like to extract for each entity.
+- **Automated Web Search**: Uses SerpAPI to gather web search results for each entity based on the custom prompts.
+- **Intelligent Data Extraction**: Leverages OpenAI’s LLM to parse search results and extract requested information (e.g., emails, addresses).
+- **Interactive Dashboard**: View extracted information in a table format, with options to download or update the connected Google Sheet.
+
+---
+
+## Screenshots
+
+### Main Dashboard
+![DataSense Main Dashboard](https://github.com/user-attachments/assets/124b90cf-f4c8-49c7-a67c-3da3868f11bc)
+
+### Data Extraction in Action
+![Data Extraction in Action](https://github.com/user-attachments/assets/67504d24-8490-434e-98a4-4f91651d9a5d)
+
+---
+
+## Project Structure
+
+```plaintext
+DataSense/
+├── app.py                 # Main Flask application
+├── templates/
+│   └── index.html         # HTML template for the dashboard
+├── static/
+│   └── css/
+│       └── style.css      # CSS styling
+├── services/
+│   ├── gsheet_service.py  # Google Sheets integration
+│   ├── llm_service.py     # LLM integration (OpenAI)
+│   └── search_service.py  # Web search integration (SerpAPI)
+├── .env                   # Environment variables (API keys, etc.)
+├── requirements.txt       # Required Python packages
+└── README.md              # Project documentation
