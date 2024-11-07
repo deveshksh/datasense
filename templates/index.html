@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataSense - AI Information Extractor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- Title -->
+        <h1>DataSense</h1>
+
+        <!-- File Upload Section -->
+        <form action="/" method="POST" enctype="multipart/form-data">
+            <h3>Option 1: Upload a CSV File</h3>
+            <input type="file" name="file">
+            <button type="submit">Upload CSV</button>
+        </form>
+
+        <!-- Google Sheets Section -->
+        <form action="/" method="POST">
+            <h3>Option 2: Connect to Google Sheets</h3>
+            <label for="sheet_id">Google Sheet ID:</label>
+            <input type="text" name="sheet_id" placeholder="Enter Google Sheet ID">
+            <button type="submit">Connect to Google Sheets</button>
+        </form>
+
+        <!-- Column Selection and Prompt Template Section -->
+        {% if columns|length > 0 %}
+        <form action="/process" method="POST">
+            <label for="column">Select Column for Entities:</label>
+            <select name="column" required>
+                {% for col in columns %}
+                    <option value="{{ col }}">{{ col }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="prompt_template">Enter Prompt Template:</label>
+            <input type="text" name="prompt_template" placeholder="e.g., Get contact details for {entity}" required>
+
+            <button type="submit">Extract Information</button>
+        </form>
+        {% endif %}
+
+        <!-- Data Preview Section -->
+        <h2>Data Preview</h2>
+        <div class="table-container">
+            {% if data_preview %}
+                {{ data_preview|safe }}
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

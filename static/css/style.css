@@ -1,0 +1,174 @@
+/* Global reset and base styles */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background: #ECF0F1; /* Light grey background */
+    color: #2C3E50; /* Dark navy text color */
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+/* Main container styling */
+.container {
+    max-width: 900px;
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Title styling */
+h1 {
+    font-size: 3.5rem;
+    color: #4A90E2; /* Cool blue */
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: -webkit-linear-gradient(45deg, #4A90E2, #1ABC9C); /* Blue to teal gradient */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Form styles */
+form {
+    margin-bottom: 25px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+form h3 {
+    font-size: 1.2rem;
+    color: #4A90E2;
+    margin-bottom: 10px;
+}
+
+label {
+    font-size: 1rem;
+    color: #2C3E50;
+    margin-bottom: 8px;
+    display: block;
+    font-weight: 500;
+}
+
+input[type="file"],
+input[type="text"],
+select {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: #f9f9f9;
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus,
+select:focus {
+    outline: none;
+    border-color: #4A90E2;
+    box-shadow: 0 0 8px rgba(74, 144, 226, 0.2);
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #ffffff;
+    background: linear-gradient(135deg, #4A90E2, #1ABC9C); /* Cool blue to teal gradient */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #1ABC9C, #4A90E2); /* Reverse gradient on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Table styling */
+.table-container {
+    margin-top: 20px;
+    overflow-x: auto;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    background-color: #ffffff;
+}
+
+table th,
+table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+table th {
+    background: linear-gradient(135deg, #4A90E2, #1ABC9C); /* Blue to teal gradient */
+    color: #ffffff;
+    font-weight: 600;
+}
+
+table tr:hover {
+    background-color: #ECF0F1; /* Light grey row highlight */
+}
+
+/* Responsive design adjustments */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .container {
+        padding: 20px;
+    }
+
+    button {
+        font-size: 0.9rem;
+    }
+}
+
+/* Smooth fade-in animation for the container */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Hover effects */
+input[type="file"]:hover,
+input[type="text"]:hover,
+select:hover {
+    box-shadow: 0 0 6px rgba(74, 144, 226, 0.2);
+}
